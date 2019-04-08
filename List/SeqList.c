@@ -147,6 +147,8 @@ void ListMerge(SeqList *La, SeqList *Lb, SeqList *Lc) {
     }
 
 }
+
+//Á©±íºÏ²¢
 void ListUnion(SeqList* La, SeqList* Lb)
 {
     int n = SeqListLength(*La);
