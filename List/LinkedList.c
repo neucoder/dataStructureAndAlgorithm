@@ -7,12 +7,32 @@
 #include "LinkedList.h"
 
 
+//测试单链表的保序合并
+
+void testMerge()
+{
+    LinkedList La, Lb, Lc;
+    ElemType arr1[20] = {1,3,5,7,9,100};
+    ElemType arr2[20] = {4,8,12,25,90};
+    LinkedListCreate2(&La, arr1, 6);
+    LinkedListCreate2(&Lb, arr2, 5);
+    //合并之前的La， Lb
+    puts("合并之前");
+    LinkedListTravel(La);
+    LinkedListTravel(Lb);
+    LinkedListMerge(&La, &Lb, &Lc);
+    puts("合并之后");
+    LinkedListTravel(La);
+    LinkedListTravel(Lb);
+
+}
+
 //测试单链表
 void testLinkedList()
 {
     LinkedList La, Lb;
-    ElemType arr[5] = {1,2,3,4,5};
-    ElemType arr1[6] = {6,7,8,9,10,11};
+    ElemType arr[5] = {1,2};
+    ElemType arr1[6] = {6,7,8};
     LNode *pa, *pb;
     LinkedListCreate1(&La, arr, 5);
     LinkedListCreate2(&Lb, arr1, 6);
@@ -22,9 +42,62 @@ void testLinkedList()
     pb = LinkedListGet(Lb, 4);
     printf("链表La的第3个元素为%d\n", pa->data);
     printf("链表Lb的第3个元素为%d\n", pb->data);
+    LinkedListTravel(La);
+    LinkedListTravel(Lb);
+
+
+    puts("链表插入操作，对链表La第三个元素进行插入");
+    pa = LinkedListGet(La, 3);
+    LinkedListInsert(La, pa, 900);
+    puts("链表插入之后，La的所有元素为：");
+    LinkedListTravel(La);
+
+    puts("链表插入操作，对链表La第5个元素进行插入");
+    pa = LinkedListGet(La, 5);
+    LinkedListInsert(La, pa, 500);
+    puts("链表插入之后，La的所有元素为：");
+    LinkedListTravel(La);
+
+    puts("链表插入操作，对链表La第1个元素进行插入");
+    pa = LinkedListGet(La, 1);
+    LinkedListInsert(La, pa, 100);
+    puts("链表插入之后，La的所有元素为：");
+    LinkedListTravel(La);
+
+
+    printf("删除La的一个元素%d\n", pa->data);
+    LinkedListDel(La, pa->data);
+    puts("删除之后的La：");
+    LinkedListTravel(La);
+    printf("删除La的一个元素%d\n", 5);
+    LinkedListDel(La, 5);
+    puts("删除之后的La：");
+    LinkedListTravel(La);
+    printf("删除La的一个元素%d\n", 900);
+    LinkedListDel(La, 900);
+    puts("删除之后的La：");
+    LinkedListTravel(La);
 
 }
 
+
+
+void LinkedListTravel(LinkedList L)
+{
+    LNode *p;
+    if(L==NULL){
+        exit(0);
+    }
+    p = L->next;
+    //puts("开始遍历链表");
+    while (p!=NULL )
+    {
+        printf("(%d)->",p->data);
+        p = p->next;
+    }
+    printf("NULL\n");
+    //puts("链表遍历结束");
+}
 
 //链表初始化
 void LinkedListInit(LinkedList *L)
@@ -105,7 +178,7 @@ void LinkedListDel(LinkedList L, ElemType e)
     LNode *pre = L;
     while ((pre->next!=NULL)&&(pre->next->data!=e))
     {
-        pre->next;
+        pre = pre->next;
     }
 
     LNode *p = pre->next;
@@ -185,10 +258,10 @@ void LinkedListMerge(LinkedList *La, LinkedList *Lb, LinkedList *Lc)
 
     if(pa!=NULL)
     {
-        pc = pa->next;
+        pc->next = pa;
     } else
     {
-        pb = pb->next;
+        pc->next = pb;
     }
     free(*Lb);
     *Lb = NULL;

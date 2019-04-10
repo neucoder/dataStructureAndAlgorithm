@@ -10,8 +10,19 @@ int main() {
     srand((unsigned int)time(NULL));
     printf("----------------------program start -----------------------\n");
 
-    testLinkedList();
 
+
+
+
+
+
+
+
+    /*
+    //≤‚ ‘¡¥±Ì
+    //testLinkedList();
+    //testMerge();
+     */
 
 
     printf("----------------------program  end ------------------------\n");

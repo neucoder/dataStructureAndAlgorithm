@@ -18,10 +18,14 @@ struct Node
 typedef struct Node LNode;
 typedef struct Node *LinkedList;
 
+
+//测试单链表的保序合并
+
+void testMerge();
 //测试单链表
 void testLinkedList();
 //链表遍历
-
+void LinkedListTravel(LinkedList L);
 //链表初始化
 void LinkedListInit(LinkedList *L);
 //链表求表长的操作
