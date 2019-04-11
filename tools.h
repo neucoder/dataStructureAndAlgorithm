@@ -1,11 +1,13 @@
 //
 // Created by ys on 2019/4/7.
 //
+#include <stdio.h>
 #include <stdlib.h>
-
 #include <time.h>
 #ifndef DATASTRUCT_TOOLS_H
 #define DATASTRUCT_TOOLS_H
+#define true 1
+#define false 0
 
 
 /*
@@ -20,6 +22,10 @@ int end = clock();
 //产生一个随机整数 范围minVal-maxVal
 int randint(int minVal, int maxVal);
 
+//交换指针变量
+void swap(int **a, int **b);
+//测试交换指针表变量
+void testSwap();
 
 
 #endif //DATASTRUCT_TOOLS_H
