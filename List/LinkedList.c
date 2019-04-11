@@ -7,6 +7,29 @@
 #include "LinkedList.h"
 
 
+
+//逆置单链表
+void LinkedListReverse(LinkedList *L)
+{
+    LinkedList p, q;
+    if((*L)->next&&(*L)->next->next)
+    {
+        p = (*L)->next;
+        q = p->next;
+        (*L)->next=NULL;
+        while (q)
+        {
+            p->next = (*L)->next;
+            (*L)->next=p;
+            p=q;
+            q=q->next;
+
+        }
+        p->next = (*L)->next;
+        (*L)->next=p;
+    }
+}
+
 //测试单链表的保序合并
 
 void testMerge()

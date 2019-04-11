@@ -19,7 +19,13 @@ typedef struct Node LNode;
 typedef struct Node *LinkedList;
 
 
+
+//逆置单链表
+void LinkedListReverse(LinkedList *L);
+
+
 //测试单链表的保序合并
+
 
 void testMerge();
 //测试单链表

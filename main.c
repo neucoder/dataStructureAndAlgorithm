@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <assert.h>
 #include "tools.h"
-#include "List/LinkedList.h"
+
+
 
 
 
@@ -13,13 +15,9 @@ int main() {
 
 
 
-
-
-
-
-
     /*
     //≤‚ ‘¡¥±Ì
+
     //testLinkedList();
     //testMerge();
      */
@@ -30,5 +28,6 @@ int main() {
    //≤‚ ‘SeqList
     testSeqList();
 */
+    system("pause");
     return 0;
 }
