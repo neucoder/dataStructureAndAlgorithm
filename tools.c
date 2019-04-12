@@ -37,6 +37,66 @@ void testSwap()
 
 }
 
+void readFile()
+{
+    int ch;//定义文件类型指针
+    FILE *fp;//判断命令行是否正确
+    fp = fopen("../abctest.txt","r");
+
+    while((ch=fgetc(fp))!=EOF)
+    {
+        putchar(ch);
+    }
+    fclose(fp);
+}
+
+
+void readData()
+{
+    FILE *fp;
+    fp = fopen("../data/1000000.csv","r");
+    int a[100000];
+
+    for (int i = 0; i < 100000; ++i) {
+        fscanf(fp,"%d,",&a[i]);
+//        printf("%d\t",a[i]);
+//        if((i+1)%10==0)
+//        {
+//            printf("\n");
+//        }
+    }
+    fclose(fp);
+    int start = clock();
+    bubbleSort(a, 100000);
+    int end = clock();
+    for (int i = 0; i < 100000; ++i) {
+
+        printf("%d\t",a[i]);
+        if((i+1)%10==0)
+        {
+            printf("\n");
+        }
+    }
+
+    printf("排序用时%dms",end-start);
+}
+
+
+//冒泡排序
+void bubbleSort(int a[], int n) {
+    for (int i = 0; i < n-1; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (a[i] > a[j]) {
+                int tmp;
+                tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+            }
+        }
+    }
+}
+
+
 
 
 

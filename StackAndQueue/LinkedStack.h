@@ -5,7 +5,7 @@
 #ifndef DATASTRUCT_LINKEDSTACK_H
 #define DATASTRUCT_LINKEDSTACK_H
 #define ElemType int
-//ç±»å‹å£°æ˜
+//ÀàĞÍÉùÃ÷
 struct Node
 {
     ElemType data;
@@ -17,17 +17,17 @@ typedef struct
     LStackNode *top;
 } LinkedStack;
 
-//åˆå§‹åŒ–
+//³õÊ¼»¯
 void Init(LinkedStack **S);
-//åˆ¤ç©ºæ“ä½œ
+//ÅĞ¿Õ²Ù×÷
 int Empty(LinkedStack *S);
-//å…¥æ ˆæ“ä½œ
+//ÈëÕ»²Ù×÷
 void Push(LinkedStack *S, ElemType x);
-//å‡ºæ ˆæ“ä½œ
+//³öÕ»²Ù×÷
 ElemType Pop(LinkedStack *S);
-//è·å–æ ˆé¡¶å…ƒç´ 
+//»ñÈ¡Õ»¶¥ÔªËØ
 ElemType Get(LinkedStack *S);
 
-//æµ‹è¯•
+//²âÊÔ
 void testLinkedList();
 #endif //DATASTRUCT_LINKEDSTACK_H

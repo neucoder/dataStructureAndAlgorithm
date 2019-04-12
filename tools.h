@@ -27,5 +27,11 @@ void swap(int **a, int **b);
 //测试交换指针表变量
 void testSwap();
 
+void readFile();
+
+//读取文件的数据
+void readData();
+//冒泡排序
+void bubbleSort(int a[], int n);
 
 #endif //DATASTRUCT_TOOLS_H

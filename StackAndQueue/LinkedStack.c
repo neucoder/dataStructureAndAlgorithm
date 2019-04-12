@@ -5,12 +5,13 @@
 #include "LinkedStack.h"
 #include "../tools.h"
 
-//åˆå§‹åŒ–
+//³õÊ¼»¯
 void Init(LinkedStack **S)
 {
+    (*S) = (LinkedStack *)malloc(sizeof(LinkedStack));
     (*S)->top = NULL;
 }
-//åˆ¤ç©ºæ“ä½œ
+//ÅÐ¿Õ²Ù×÷
 int Empty(LinkedStack *S)
 {
     if(S->top == NULL)
@@ -21,28 +22,28 @@ int Empty(LinkedStack *S)
         return true;
     }
 }
-//å…¥æ ˆæ“ä½œ
+//ÈëÕ»²Ù×÷
 void Push(LinkedStack *S, ElemType x)
 {
     LStackNode *ls;
     ls = (LStackNode *)malloc(sizeof(LStackNode));
     if(ls == NULL)
     {
-        printf("ç”³è¯·ç©ºé—´å¤±è´¥\n");
+        printf("ÉêÇë¿Õ¼äÊ§°Ü\n");
         exit(0);
     }
     ls->data = x;
     ls->next = S->top;
     S->top = ls;
 }
-//å‡ºæ ˆæ“ä½œ
+//³öÕ»²Ù×÷
 ElemType Pop(LinkedStack *S)
 {
     LStackNode *p;
     ElemType x;
     if(S->top ==NULL)
     {
-        printf("æ ˆç©ºä¸èƒ½è¿›è¡Œå‡ºæ ˆæ“ä½œ\n");
+        printf("Õ»¿Õ²»ÄÜ½øÐÐ³öÕ»²Ù×÷\n");
         exit(0);
     }
 
@@ -53,21 +54,32 @@ ElemType Pop(LinkedStack *S)
     return x;
 }
 
-//èŽ·å–æ ˆé¡¶å…ƒç´ 
+//»ñÈ¡Õ»¶¥ÔªËØ
 ElemType Get(LinkedStack *S)
 {
     if(S->top ==NULL)
     {
-        printf("æ ˆç©ºï¼Œæ— æ³•è¿›è¡Œå–å…ƒç´ æ“ä½œ");
+        printf("Õ»¿Õ£¬ÎÞ·¨½øÐÐÈ¡ÔªËØ²Ù×÷");
         exit(0);
     }
     return S->top->data;
 }
 
-//æµ‹è¯•
+//²âÊÔ
 void testLinkedList()
 {
     LinkedStack *S;
     Init(&S);
+    ElemType x;
+    Push(S, 12);
+    Push(S,13);
+    Push(S,123);
+    Pop(S);
+    x = Pop(S);
+    printf("%d\n",x);
+    x = Pop(S);
+    printf("%d\n",x);
+    x = Pop(S);
+    printf("%d\n",x);
 
 }
