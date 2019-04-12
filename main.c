@@ -5,6 +5,7 @@
 #include "tools.h"
 #include "StackAndQueue/SeqQueue.h"
 
+
 int main() {
     srand((unsigned int)time(NULL));
     printf("----------------------program start -----------------------\n");
