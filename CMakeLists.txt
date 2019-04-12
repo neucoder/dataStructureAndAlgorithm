@@ -3,4 +3,4 @@ project(datastruct C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(dataStruct main.c tools.h tools.c)
+add_executable(dataStruct main.c tools.h tools.c StackAndQueue/SeqQueue.c StackAndQueue/SeqQueue.h)
