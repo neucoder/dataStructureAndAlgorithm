@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "tools.h"
-#include "StackAndQueue/SeqQueue.h"
 
 
 int main() {
