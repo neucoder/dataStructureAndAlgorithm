@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #ifndef DATASTRUCT_TOOLS_H
 #define DATASTRUCT_TOOLS_H
 #define true 1

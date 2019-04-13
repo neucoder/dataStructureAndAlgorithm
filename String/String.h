@@ -12,13 +12,20 @@ struct Node
 };
 typedef struct Node String;
 
-//ä¸²çš„èµ‹å€¼æ“ä½œ
+void test();
+
+
+//³õÊ¼»¯´®
+void SeqStringInit(String *S, char *s);
+//´®µÄ¸³Öµ²Ù×÷
 void SeqStringAssign(String *S, String *T);
-//ä¸²çš„è¿æ¥
+//´®µÄÁ¬½Ó
 void SeqStringContact(String *S, String *T);
-//åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦ç›¸ç­‰
-void SeqStringEqual(String *S, String *T);
-//æ±‚å­å­—ç¬¦ä¸²çš„æ“ä½œ
+//ÅĞ¶Ï×Ö·û´®ÊÇ·ñÏàµÈ
+int SeqStringEqual(String *S, String *T);
+//Çó×Ó×Ö·û´®µÄ²Ù×÷
 void SubSeqString(String *S, String *Sub, int strat, int len);
+
+void testString();
 
 #endif //DATASTRUCT_STRING_H
