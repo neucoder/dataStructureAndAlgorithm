@@ -126,3 +126,79 @@ void SeqStringInit(String *S, char *s)
     (S)->str[(S)->length] = '\0';
 
 }
+
+//KMP∆•≈‰À„∑®
+int KMP(String *S, String *P)
+{
+
+}
+//ºÚµ•∆•≈‰À„∑®
+int SimpleMatching(String *S, String *P)
+{
+    int i = 0;
+    while (i <= (S->length - P->length))
+    {
+        int j = 0;
+        while (S->str[i] == P->str[j])
+        {
+            i++;
+            j++;
+        }
+        if(j == P->length)
+        {
+            return i - P->length;
+        }
+        i = i - j + 1;
+
+    }
+    return -1;
+}
+
+void testSimpleMatching()
+{
+    String S, P;
+    FILE *fp;
+    fp = fopen("../data/article.txt","r");
+    char c;
+    int i = 0;
+    int pos = -1;
+    char s[1000000];
+//    while (((c=fgetc(fp))!=EOF))
+//    {
+//        i++;
+//    }
+
+    //"Superintelligencehello"
+
+    SeqStringInit(&P, "Superintelligencehello");
+
+    int start = clock();
+    for (int j = 0; j < 108; ++j) {
+        while (((c=fgetc(fp))!=EOF) && i < 1000000)
+        {
+            //printf("%c",c);
+            s[i++]=c;
+//            i++;
+        }
+        S.str = s;
+        S.length = i;
+        int x = SimpleMatching(&S, &P);
+        if(x == -1)
+        {
+            i = 0;
+        } else
+        {
+            pos = j * 1000000 + x;
+            break;
+        }
+    }
+
+    int end = clock();
+
+
+    fclose(fp);
+
+
+    printf("%d\n  ∫ƒ ±£∫%d ms", pos, end-start);
+
+}

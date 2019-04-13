@@ -25,7 +25,11 @@ void SeqStringContact(String *S, String *T);
 int SeqStringEqual(String *S, String *T);
 //求子字符串的操作
 void SubSeqString(String *S, String *Sub, int strat, int len);
+int KMP(String *S, String *P);
+//简单匹配算法
+int SimpleMatching(String *S, String *P);
 
+void testSimpleMatching();
 void testString();
 
 #endif //DATASTRUCT_STRING_H
