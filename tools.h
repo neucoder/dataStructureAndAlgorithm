@@ -9,7 +9,7 @@
 #define DATASTRUCT_TOOLS_H
 #define true 1
 #define false 0
-
+void testFp();
 
 /*
 //º∆ ±”√

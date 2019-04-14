@@ -5,10 +5,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tools.h"
+//extern FILE *fp;
+
+
+/*
+ *
+ * 输出到文件
+ * FILE *fp;
+    time_t t;
+    fp = fopen("log.txt","a");
+
+    fprintf(fp,"你好哈哈%d\n",123);
+    fclose(fp);
+
+ *
+ *
+ */
+
 //产生一个随机整数 范围minVal-maxVal
 
 int randint(int minVal, int maxVal)
 {
+
     int r;
     r = minVal + rand()%(maxVal - minVal + 1);
     return r;
@@ -96,8 +114,14 @@ void bubbleSort(int a[], int n) {
     }
 }
 
+/*
+void testFp()
+{
+    fp = fopen("log.txt","a");
+    fprintf(fp,"hello,world file:%s fun:%s line:%d\n",__FILE__, __FUNCTION__, __LINE__);
+    fclose(fp);
+}
 
 
-
-
+*/
 

@@ -3,4 +3,4 @@ project(datastruct C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(dataStruct main.c  tools.c tools.h String/String.h String/String.c)
+add_executable(dataStruct main.c  tools.c tools.h Tree/BinTree.c Tree/BinTree.h)
