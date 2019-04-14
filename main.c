@@ -12,7 +12,9 @@ int main() {
     printf("----------------------program start -----------------------\n");
 
     testSimpleMatching();
+    //testKMP();
     printf("\n----------------------program  end ------------------------\n");
     system("pause");
     return 0;
 }
+

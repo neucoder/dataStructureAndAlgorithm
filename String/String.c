@@ -128,11 +128,48 @@ void SeqStringInit(String *S, char *s)
 }
 
 //KMP∆•≈‰À„∑®
-int KMP(String *S, String *P)
+int KMP(String * t, String* p, int *next)
 {
+    int i = 0;
+    int j = 0;
 
+    while (i < t->length && j < p->length)
+    {
+        if (j == -1 || t->str[i] == p->str[j])
+        {
+            i++;
+            j++;
+        }
+        else
+            j = next[j];
+    }
+
+    if (j == p->length)
+        return i - j;
+    else
+        return -1;
 }
-//ºÚµ•∆•≈‰À„∑®
+
+
+void getNext(char * p, int * next)
+{
+    next[0] = -1;
+    int i = 0, j = -1;
+
+    while (i < strlen(p))
+    {
+        if (j == -1 || p[i] == p[j])
+        {
+            ++i;
+            ++j;
+            next[i] = j;
+        }
+        else
+            j = next[j];
+    }
+}
+
+
 int SimpleMatching(String *S, String *P)
 {
     int i = 0;
@@ -149,7 +186,6 @@ int SimpleMatching(String *S, String *P)
             return i - P->length;
         }
         i = i - j + 1;
-
     }
     return -1;
 }
@@ -163,15 +199,17 @@ void testSimpleMatching()
     int i = 0;
     int pos = -1;
     char s[1000000];
-//    while (((c=fgetc(fp))!=EOF))
-//    {
-//        i++;
-//    }
+
 
     //"Superintelligencehello"
 
     SeqStringInit(&P, "Superintelligencehello");
-
+    int next[P.length];
+    getNext(P.str, next);
+    for (int k = 0; k < P.length; ++k) {
+        printf("%d\t",next[k]);
+    }
+    printf("\n");
     int start = clock();
     for (int j = 0; j < 108; ++j) {
         while (((c=fgetc(fp))!=EOF) && i < 1000000)
@@ -182,7 +220,8 @@ void testSimpleMatching()
         }
         S.str = s;
         S.length = i;
-        int x = SimpleMatching(&S, &P);
+        int x = KMP(&S, &P, next);
+                //int x = SimpleMatching(&S, &P);
         if(x == -1)
         {
             i = 0;
@@ -202,3 +241,20 @@ void testSimpleMatching()
     printf("%d\n  ∫ƒ ±£∫%d ms", pos, end-start);
 
 }
+
+
+void testKMP()
+{
+    String S,P;
+
+    SeqStringInit(&S, "abcabcabcd");
+    SeqStringInit(&P, "abcd");
+    int next[P.length];
+    getNext(P.str, next);
+    int x = KMP(&S, &P, next);
+    printf("%d",x);
+}
+
+
+
+
