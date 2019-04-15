@@ -3,6 +3,10 @@
 //
 #include "../tools.h"
 #include "BinTree.h"
+
+#define DATASTRUCT_BINTREE_H
+#ifndef DATASTRUCT_BINTREE_H
+#define DATASTRUCT_BINTREE_H
 void InitBTree(BinTree *BT)
 {
     (*BT) = NULL;
@@ -88,3 +92,5 @@ void testBTree()
     //PostOrderTraverse(BT);
 
 }
+
+#endif

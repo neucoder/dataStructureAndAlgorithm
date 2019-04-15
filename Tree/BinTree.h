@@ -1,7 +1,7 @@
 //
 // Created by ys on 2019/4/14.
 //
-
+#define DATASTRUCT_BINTREE_H
 #ifndef DATASTRUCT_BINTREE_H
 #define DATASTRUCT_BINTREE_H
 #define DataType char

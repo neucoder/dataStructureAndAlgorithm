@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tools.h"
+
+
+
+
 //extern FILE *fp;
 
 
@@ -124,4 +128,9 @@ void testFp()
 
 
 */
+
+void printDebug()
+{
+    printf("debug.........\n");
+}
 

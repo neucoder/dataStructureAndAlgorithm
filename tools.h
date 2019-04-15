@@ -5,11 +5,26 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+
+
+
+
+
 #ifndef DATASTRUCT_TOOLS_H
 #define DATASTRUCT_TOOLS_H
 #define true 1
 #define false 0
 void testFp();
+
+
+
+#ifndef DEBUG
+#define DEBUG
+
+void printDebug();
+
+#endif
+
 
 /*
 //º∆ ±”√
