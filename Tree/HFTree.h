@@ -1,7 +1,7 @@
 //
 // Created by ys on 2019/4/15.
 //
-
+#define DATASTRUCT_HFTREE_H
 #ifndef DATASTRUCT_HFTREE_H
 #define DATASTRUCT_HFTREE_H
 

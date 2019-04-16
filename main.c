@@ -12,7 +12,8 @@ int main() {
     srand((unsigned int)time(NULL));
     printf("----------------------program start -----------------------\n");
 
-    //printDebug();
+    testRoot();
+
     printf("\n----------------------program  end ------------------------\n");
     system("pause");
     return 0;
