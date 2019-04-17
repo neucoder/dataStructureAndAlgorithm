@@ -159,9 +159,12 @@ BinTree LeftSibling(BinTree BT, BinTree x)
 //ÇóÓÒÐÖµÜ
 BinTree RightSibling(BinTree BT, BinTree x)
 {
+    //ÏÈÕÒµÄ½áµãµÄË«Ç×ÔÙÕÒÓÒÐÖµÜ
     BinTree parent = Parent(BT, x);
     if(parent)
     {
+        if(parent->rchild == x)
+            return NULL;
         return parent->rchild;
     } else{
         return NULL;
@@ -171,19 +174,45 @@ BinTree RightSibling(BinTree BT, BinTree x)
 
 
 //²åÈë×óº¢×Ó
-BinTree InsertLeftChild(BinTree BT, BinTree p, BinTree x);
+void InsertLeftChild(BinTree BT, BinTree p, BinTree x)
+{
+    if(BT)
+    {
+        if(p->lchild==NULL)
+        {
+            p->lchild = x;
+        }
+    }
+}
 
 
 //²åÈëÓÒº¢×Ó
-BinTree InsertRightChild(BinTree BT, BinTree p, BinTree x);
-
+BinTree InsertRightChild(BinTree BT, BinTree p, BinTree x)
+{
+    if(BT)
+    {
+        if(p->rchild==NULL)
+        {
+            p->rchild = x;
+        }
+    }
+}
 
 //É¾³ý×óº¢×Ó
 
-void DeleteLeftChild(BinTree BT, BinTree p);
+void DeleteLeftChild(BinTree BT, BinTree p)
+{
+    if(BT)
+    {
+        DestroyBTree(&(p->lchild));
+    }
+}
 
 //É¾³ýÓÒº¢×Ó
-void DeleteRightChild(BinTree BT, BinTree p);
+void DeleteRightChild(BinTree BT, BinTree p)
+{
+    DestroyBTree(&(p->rchild));
+}
 
 
 void CreateNode(BinTree *node, DataType data) {
@@ -238,16 +267,52 @@ void testRoot() {
     G = C->rchild;
     N = G->lchild;
     O = G->rchild;
-    BinTree tmp;
-    tmp = LeftSibling(BT, BT);
-    tmp = LeftSibling(BT, B);
-    tmp = LeftSibling(BT, C);
-    tmp = LeftSibling(BT, D);
-    tmp = LeftSibling(BT, E);
-    tmp = LeftSibling(BT, H);
-    tmp = LeftSibling(BT, G);
-    tmp = LeftSibling(BT, N);
-    tmp = LeftSibling(BT, O);
+    CreateNode(&F, 'F');
+    DeleteRightChild(BT, B);
+    DeleteRightChild(BT, G);
+    DeleteRightChild(BT, C);
+    DeleteRightChild(BT, A);
+
+
+//    DeleteLeftChild(BT, D);
+//    DeleteLeftChild(BT, B);
+//    DeleteLeftChild(BT, BT);
+//    DeleteLeftChild(BT, C);
+
+
+//    InsertLeftChild(BT, E, F);
+//    InsertLeftChild(BT, F, G);
+//
+//    InsertRightChild(BT, E, F);
+//    InsertRightChild(BT,D,C);
+
+    putchar(' ');
+
+
+
+
+
+
+//    tmp = LeftSibling(BT, BT);
+//    tmp = LeftSibling(BT, B);
+//    tmp = LeftSibling(BT, C);
+//    tmp = LeftSibling(BT, D);
+//    tmp = LeftSibling(BT, E);
+//    tmp = LeftSibling(BT, H);
+//    tmp = LeftSibling(BT, G);
+//    tmp = LeftSibling(BT, N);
+//    tmp = LeftSibling(BT, O);
+//
+//    tmp = RightSibling(BT, BT);
+//    tmp = RightSibling(BT, B);
+//    tmp = RightSibling(BT, C);
+//    tmp = RightSibling(BT, D);
+//    tmp = RightSibling(BT, E);
+//    tmp = RightSibling(BT, H);
+//    tmp = RightSibling(BT, G);
+//    tmp = RightSibling(BT, N);
+//    tmp = RightSibling(BT, O);
+
 
 
 

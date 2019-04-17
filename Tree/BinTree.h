@@ -46,7 +46,7 @@ BinTree RightSibling(BinTree BT, BinTree x);
 
 
 //插入左孩子
-BinTree InsertLeftChild(BinTree BT, BinTree p, BinTree x);
+void InsertLeftChild(BinTree BT, BinTree p, BinTree x);
 
 
 //插入右孩子
