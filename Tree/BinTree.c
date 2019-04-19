@@ -4,7 +4,7 @@
 #include "../tools.h"
 #include "BinTree.h"
 
-//#define DATASTRUCT_BINTREE_C
+#define DATASTRUCT_BINTREE_C
 #ifndef DATASTRUCT_BINTREE_C
 #define DATASTRUCT_BINTREE_C
 

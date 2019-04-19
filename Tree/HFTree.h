@@ -1,13 +1,13 @@
 //
 // Created by ys on 2019/4/15.
 //
-#define DATASTRUCT_HFTREE_H
+//#define DATASTRUCT_HFTREE_H
 #ifndef DATASTRUCT_HFTREE_H
 #define DATASTRUCT_HFTREE_H
 
 #define MAXSIZE 1000
 
-//å“ˆå¤«æ›¼æ ‘çš„å®šä¹‰
+//¹þ·òÂüÊ÷µÄ¶¨Òå
 struct node
 {
     int weight;
@@ -18,6 +18,13 @@ struct node
 
 typedef struct node HFTreeNode;
 typedef HFTreeNode HuffmanTree;
+//¹¹½¨Ò»¸ö¹þ¸¥ÂüÊ÷
+int CreateHuffmanTree(HuffmanTree *T, int *weight, int n);
+//´ÓÉ­ÁÖÖÐÑ¡³öÁ½¿Å×îÐ¡È¨ÖµµÄÊ÷
+void Select(HuffmanTree *HT, int total, int *n1, int *n2);
 
+void HFtreeTravel(HuffmanTree *HT, int root);
 
+//²âÊÔ
+void testHTree();
 #endif //DATASTRUCT_HFTREE_H

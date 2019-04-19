@@ -5,6 +5,7 @@
 #include <string.h>
 #include "tools.h"
 #include "Tree/BinTree.h"
+#include "Tree/HFTree.h"
 
 
 
@@ -12,8 +13,8 @@ int main() {
     srand((unsigned int)time(NULL));
     printf("----------------------program start -----------------------\n");
 
-    testRoot();
-
+    //testRoot();
+    testHTree();
     printf("\n----------------------program  end ------------------------\n");
     system("pause");
     return 0;
