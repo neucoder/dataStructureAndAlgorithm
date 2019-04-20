@@ -38,6 +38,7 @@ int CreateHuffmanTree(HuffmanTree *T, int *weight, int n)
         T[k].rchild = n2;
         T[k].weight = T[n1].weight + T[n2].weight;
     }
+    return 1;
 }
 //从森林中选出两颗最小权值的树
 void Select(HuffmanTree *HT, int total, int *n1, int *n2)
@@ -96,5 +97,69 @@ void testHTree()
     HFtreeTravel(HT, 6);
 
 }
+
+
+//编码
+void HFEncode(HuffmanTree *T, HFCode *H, int n)
+{
+
+    char tmpCode[n+1];
+    int start = -1;
+    int p = -1, c = -1; //指示父节点的位置,孩子结点的位置
+    tmpCode[n+1] = '\0';
+    for (int i = 0; i < n; ++i) {
+        start = n;
+        c = i;
+        while ((p = T[c].parent) > 0)
+        {
+            if(T[p].lchild == c)
+            {
+                tmpCode[--start] = '0';
+            } else
+            {
+                tmpCode[--start] = '1';
+            }
+            c = p;
+        }
+        strcpy(H[i].bits, &tmpCode[start]);
+
+
+    }
+}
+//解码
+void HFDecode(HuffmanTree *T, HFCode *H, int n)
+{
+
+}
+//测试
+void testHFCode()
+{
+    int weight[6] = {2, 3, 4, 5, 6, 7};
+    char ch[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
+    HFCode HF[6];
+    for (int i = 0; i < 6; ++i) {
+        HF[i].weight = weight[i];
+        HF[i].ch = ch[i];
+    }
+
+
+    for (int i = 0; i < 6; ++i) {
+        printf("%c %d\n",HF[i].ch, HF[i].weight);
+    }
+    int n = 6, root = 2*n-2;
+    HFTreeNode HFTree[n*2 - 1];
+    CreateHuffmanTree(HFTree, weight ,n);
+    HFtreeTravel(HFTree, root);
+
+    HFEncode(HFTree, HF, n);
+    for (int i = 0; i < 6; ++i) {
+        printf("\n%c %d %s\n",HF[i].ch, HF[i].weight, HF[i].bits);
+    }
+}
+
+
+
+
+
 #endif //DATASTRUCT_HFTREE_H
 

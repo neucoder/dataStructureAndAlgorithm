@@ -25,6 +25,24 @@ void Select(HuffmanTree *HT, int total, int *n1, int *n2);
 
 void HFtreeTravel(HuffmanTree *HT, int root);
 
+//¹ş·òÂü±àÂë½âÂë
+#define N 20
+struct CodeNode
+{
+    char ch;
+    char bits[20];
+    int weight;
+};
+
+typedef struct CodeNode HFCode;
+
+//±àÂë
+void HFEncode(HuffmanTree *T, HFCode *H, int n);
+//½âÂë
+void HFDecode(HuffmanTree *T, HFCode *H, int n);
+//²âÊÔ
+void testHFCode();
+
 //²âÊÔ
 void testHTree();
 #endif //DATASTRUCT_HFTREE_H
