@@ -4,6 +4,7 @@
 
 #include "HFTree.h"
 #include "../tools.h"
+#define DATASTRUCT_HFTREE_C
 #ifndef DATASTRUCT_HFTREE_C
 #define DATASTRUCT_HFTREE_C
 

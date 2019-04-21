@@ -6,7 +6,8 @@
 #include "tools.h"
 #include "Tree/BinTree.h"
 #include "Tree/HFTree.h"
-
+#include "Graph/AdjLinkedList.h"
+#include "Graph/AdjGraph.h"
 
 
 int main() {
