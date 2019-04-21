@@ -14,7 +14,7 @@ int main() {
     printf("----------------------program start -----------------------\n");
 
     testHFCode();
-
+    //newline
     printf("\n----------------------program  end ------------------------\n");
     system("pause");
     return 0;
