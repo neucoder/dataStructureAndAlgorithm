@@ -129,7 +129,26 @@ void HFEncode(HuffmanTree *T, HFCode *H, int n)
 //解码
 void HFDecode(HuffmanTree *T, HFCode *H, int n)
 {
+    int j = -1;
+    int child = 2*n-2;
+    for (int i = 0; i < n; ++i) {
+        j = 0;
+        child = 2*n-2;
+        while (H[i].bits[j] != '\0')
+        {
+            if(H[i].bits[j]=='0')
+            {
+                child = T[child].lchild;
+            } else
+            {
+                child = T[child].rchild;
+            }
 
+            j++;
+        }
+
+        printf("编码为:%s 对应字符为node为: %d\n",H[i].bits, child);
+    }
 }
 //测试
 void testHFCode()
@@ -155,6 +174,8 @@ void testHFCode()
     for (int i = 0; i < 6; ++i) {
         printf("\n%c %d %s\n",HF[i].ch, HF[i].weight, HF[i].bits);
     }
+
+    HFDecode(HFTree, HF, 6);
 }
 
 
