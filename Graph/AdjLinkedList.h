@@ -34,7 +34,9 @@ typedef struct
     AdjList adjlist;
     int n, e;
 }ALGraph;
+//创建图的数据结构
+void CreateALGraph(ALGraph *G);
 
-
+void test();
 
 #endif //DATASTRUCT_ADJLINKEDLIST_H
