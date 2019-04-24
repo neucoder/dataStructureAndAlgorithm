@@ -1,7 +1,7 @@
 //
 // Created by ys on 2019/4/21.
 //
-
+#define DATASTRUCT_ADJLINKEDLIST_H
 #ifndef DATASTRUCT_ADJLINKEDLIST_H
 #define DATASTRUCT_ADJLINKEDLIST_H
 

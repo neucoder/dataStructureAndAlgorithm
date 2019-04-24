@@ -5,7 +5,9 @@
 #include "AdjLinkedList.h"
 #include "../tools.h"
 
-
+#define DATASTRUCT_ADJLINKEDLIST_C
+#ifndef DATASTRUCT_ADJLINKEDLIST_C
+#define DATASTRUCT_ADJLINKEDLIST_C
 void CreateALGraph(ALGraph *G)
 {
     FILE *fp;
@@ -60,4 +62,6 @@ void test()
 
     CreateALGraph(G);
 
+    free(G);
 }
+#endif

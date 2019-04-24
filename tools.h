@@ -6,6 +6,13 @@
 #include <time.h>
 #include <string.h>
 
+#include "Tree/BinTree.h"
+#include "Tree/HFTree.h"
+#include "Graph/AdjLinkedList.h"
+#include "Graph/AdjGraph.h"
+
+#include "Search/LinklistSearch.h"
+
 
 
 
@@ -17,11 +24,11 @@
 void testFp();
 
 
-
 #ifndef DEBUG
 #define DEBUG
 
 void printDebug();
+
 
 #endif
 
