@@ -85,11 +85,11 @@ void testBSearch()
     for (int i = 1; i < N; ++i) {
         List[i] = i;
     }
-    int key = 74;
+    int key = 714;
 
     int index = BinSearch(List, key, 1, N-1);
 
-    printf("查找的index为:%d\n", index);
+    printf("查找的index为:    %d\n", index);
     index = RBinSearch(List, key, 1, N-1);
     printf("递归查找的index为:%d\n", index);
 

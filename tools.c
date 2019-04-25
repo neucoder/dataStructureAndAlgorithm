@@ -135,3 +135,29 @@ void printDebug()
 }
 
 
+void printToFile(char *fname, ElemType *arr, int arrLen)
+{
+    FILE *fp;
+    fp = fopen(fname, "w");
+    for (int j = 1; j <= arrLen ; ++j) {
+        fprintf(fp, "%10d", arr[j]);
+        if((j % 10)==0)
+        {
+            fprintf(fp, "\n");
+
+        }
+    }
+    fclose(fp);
+}
+
+
+void testRand()
+{
+    for (int i = 1; i <= 20; ++i) {
+        printf("%8d",randint(1,10000));
+        if((i%10)==0)
+        {
+            printf("\n");
+        }
+    }
+}

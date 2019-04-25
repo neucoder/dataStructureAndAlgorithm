@@ -10,7 +10,7 @@
 #include "Tree/HFTree.h"
 #include "Graph/AdjLinkedList.h"
 #include "Graph/AdjGraph.h"
-
+#include "Sort/InsertSort.h"
 #include "Search/LinklistSearch.h"
 
 
@@ -56,5 +56,10 @@ void readFile();
 void readData();
 //ц╟ещеепР
 void bubbleSort(int a[], int n);
+
+
+void printToFile(char *fname, ElemType *arr, int arrLen);
+
+void testRand();
 
 #endif //DATASTRUCT_TOOLS_H
