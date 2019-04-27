@@ -45,8 +45,6 @@ int end = clock();
 //产生一个随机整数 范围minVal-maxVal
 int randint(int minVal, int maxVal);
 
-//交换指针变量
-void swap(int **a, int **b);
 //测试交换指针表变量
 void testSwap();
 
@@ -61,7 +59,7 @@ void bubbleSort(int a[], int n);
 void printToFile(char *fname, ElemType *arr, int arrLen);
 
 void testRand();
-
+void swap(int *a, int *b);
 
 void printArr(ElemType *arr, int len);
 

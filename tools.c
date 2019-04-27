@@ -37,28 +37,6 @@ int randint(int minVal, int maxVal)
 }
 
 
-//交换指针变量
-void swap(int **a, int **b)
-{
-    int tmp;
-    tmp = **a;
-    **a = **b;
-    **b = tmp;
-}
-
-//测试交换指针表变量
-void testSwap()
-{
-    int *a = (int *)malloc(sizeof(int));
-    int *b = (int *)malloc(sizeof(int));
-    *a = 3;
-    *b = 5;
-    printf("*a:%d and *b:%d\n", *a, *b);
-    swap(&a, &b);
-    printf("*a:%d and *b:%d\n", *a, *b);
-
-}
-
 void readFile()
 {
     int ch;//定义文件类型指针
@@ -187,4 +165,12 @@ void printArr(ElemType *arr, int len)
             putchar('\n');
         }
     }
+}
+//俩数交换
+void swap(int *a, int *b)
+{
+    int tmp;
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }

@@ -5,6 +5,13 @@
 #ifndef DATASTRUCT_INSERTSORT_H
 #define DATASTRUCT_INSERTSORT_H
 #define ElemType int
+
+
+//快速排序获取中枢操作
+int getPrivot(int *SqList, int left, int right);
+
+
+
 void bubbleSort1(ElemType *SqList, int len);
 //直接插入排序，插入操作
 void straipass(ElemType *SqList, ElemType key, int len);
