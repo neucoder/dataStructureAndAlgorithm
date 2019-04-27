@@ -5,6 +5,7 @@
 #ifndef DATASTRUCT_INSERTSORT_H
 #define DATASTRUCT_INSERTSORT_H
 #define ElemType int
+void bubbleSort1(ElemType *SqList, int len);
 //直接插入排序，插入操作
 void straipass(ElemType *SqList, ElemType key, int len);
 //直接插入排序
@@ -23,4 +24,6 @@ void shellSort(ElemType *SqList, int len);
 void bstraipass(ElemType *SqList, ElemType key, int len);
 
 void testSort();
+
+void readFromFile(char *fname, ElemType * arr, int arrLen);
 #endif //DATASTRUCT_INSERTSORT_H

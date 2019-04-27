@@ -135,6 +135,21 @@ void printDebug()
 }
 
 
+void readFromFile(char *fname, ElemType * arr, int arrLen)
+{
+    FILE *fp;
+    fp = fopen(fname, "r");
+    for (int j = 1; j <= arrLen ; ++j) {
+        fscanf(fp, "%10d", &arr[j]);
+        if((j % 10)==0)
+        {
+            fgetc(fp);
+        }
+    }
+    fclose(fp);
+}
+
+
 void printToFile(char *fname, ElemType *arr, int arrLen)
 {
     FILE *fp;
@@ -158,6 +173,18 @@ void testRand()
         if((i%10)==0)
         {
             printf("\n");
+        }
+    }
+}
+
+
+void printArr(ElemType *arr, int len)
+{
+    for (int i = 1; i <= len; ++i) {
+        printf("%8d",arr[i]);
+        if(i%10==0)
+        {
+            putchar('\n');
         }
     }
 }

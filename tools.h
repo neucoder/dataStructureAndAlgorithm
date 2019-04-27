@@ -62,4 +62,7 @@ void printToFile(char *fname, ElemType *arr, int arrLen);
 
 void testRand();
 
+
+void printArr(ElemType *arr, int len);
+
 #endif //DATASTRUCT_TOOLS_H
