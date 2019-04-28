@@ -93,6 +93,7 @@ void bubbleSort1(ElemType *SqList, int len) {
 //先获得枢纽元，采用的方法是三中值法
 int getPrivot(int *SqList, int left, int right) {
     int center = (left + right) / 2;
+    int _right = right;
     if (SqList[left] > SqList[center]) {
         swap(&SqList[left], &SqList[center]);
     }
@@ -102,7 +103,20 @@ int getPrivot(int *SqList, int left, int right) {
     if (SqList[center] < SqList[right]) {
         swap(&SqList[center], &SqList[right]);
     }
-    return SqList[right];
+
+    ElemType privotkey = SqList[right];
+
+    while (left < right)
+    {
+        while (left < right && SqList[left] <= privotkey)
+            left++;
+        while (left < right && SqList[right] >= privotkey)
+            right--;
+        swap(&SqList[left], &SqList[right]);
+
+    }
+    swap(&SqList[left], &SqList[_right]);
+    return left;
 }
 
 void insertSort(ElemType *SqList, int left, int right)
@@ -124,25 +138,15 @@ void insertSort(ElemType *SqList, int left, int right)
         SqList[j] = key;
     }
 }
+
+//快速排序有错误排查完成，可以正常运行
 void quickSort(ElemType *SqList, int left, int right) {
+    int privot;
     if (right - left > 7) {
-        int privot, i, j;
         privot = getPrivot(SqList, left, right);
-        i = left, j = right-1;
-        while (i < j) {
-            while ((i < j) && (SqList[i] <= privot)) {
-                i++;
-            }
-            while ((i < j) && (SqList[j] > privot)) {
-                j--;
-            }
-            swap(&SqList[i], &SqList[j]);
+        quickSort(SqList, left, privot-1);
+        quickSort(SqList, privot+1,right);
 
-        }
-        swap(&SqList[i], &SqList[right]);
-
-        quickSort(SqList, left, i - 1);
-        quickSort(SqList, i + 1, right);
     } else
     {
         insertSort(SqList, left, right);
@@ -156,17 +160,13 @@ void testSort() {
     ElemType *SqList = (int *) malloc(sizeof(int) * (N + 1));
     ElemType *SqList1 = (int *) malloc(sizeof(int) * (N + 1));
 
-
-    //int arr[11] = {-1, 3,5,72,1,58,97,54,2,1,6};
-
-
     readFromFile("raw.txt", SqList, N);
     start = clock();
     quickSort(SqList, 1, N);
     end = clock();
     printf("qsort排序用时:%dms\n", end - start);
     //printToFile("quick.txt", SqList, N);
-    //printArr(SqList, 10);
+    //printArr(SqList, N);
 
 
     readFromFile("raw.txt", SqList1, N);
@@ -174,6 +174,7 @@ void testSort() {
     shellSort(SqList1, N);
     end = clock();
     printf("shellsort排序用时:%dms\n", end - start);
+    //printArr(SqList1, N);
     for (int i = 1; i <= N ; ++i) {
         if(SqList[i]!=SqList1[i])
         {
@@ -182,6 +183,7 @@ void testSort() {
     }
     //printToFile("shell.txt",SqList, N);
 
+    free(SqList1);
     free(SqList);
 }
 
