@@ -153,38 +153,146 @@ void quickSort(ElemType *SqList, int left, int right) {
     }
 }
 
+//选择排序
+void selectSort(ElemType *SqList, int len)
+{
+    int min;
+    for (int i = 1; i < len; ++i) {
+        min = i;
+        for (int j = i+1; j <= len; ++j) {
+            if(SqList[min] > SqList[j])
+            {
+                min = j;
+            }
+        }
+        swap(&SqList[i], &SqList[min]);
+    }
+}
+
+//调整为大顶堆
+//依次调整使堆为一个数据构成大顶堆
+void heapAdjust(ElemType *SqList, int s, int m)
+{
+
+    ElemType tmp;
+    tmp = SqList[s];
+    for (int i = 2 * s; i <= m; i*=2) {
+        if(i < m && SqList[i] < SqList[i+1])
+        {
+            ++i;
+        }
+
+        if(tmp >= SqList[i])
+        {
+            break;
+        }
+
+        SqList[s] = SqList[i];
+        s = i;
+    }
+    SqList[s] = tmp;
+}
+
+//堆排序
+void HeapSort(ElemType *SqList, int len)
+{
+    int i;
+    for (i = len/2; i > 0; --i) {
+        heapAdjust(SqList, i, len);
+    }
+
+    for ( i = len; i > 1; --i) {
+        swap(&SqList[1], &SqList[i]);
+        heapAdjust(SqList, 1, i-1);
+    }
+}
+
+void timeOfSort(char *dataFile, void (*fun)(ElemType *Sqlist, int len), char *funName, ElemType *SqList, int N)
+{
+    int start, end;
+    readFromFile(dataFile, SqList, N);
+    start = clock();
+    fun(SqList, N);
+    end = clock();
+    printf("%s排序用时:%dms\n",funName, end - start);
+}
+
+
+void arrEqual(ElemType *arr1, ElemType *arr2, int s, int N)
+{
+    for (int i = s; i <= N ; ++i) {
+        if(arr1[i]!=arr2[i])
+        {
+            printf("%d: arr1: %d  arr2: %d\n",i,arr1[i],arr2[i]);
+        }
+    }
+
+}
+
+
+void mergeSort(ElemType *SqList, int len)
+{
+    ElemType *tmpArr = (ElemType *)malloc((len+1)* sizeof(ElemType));
+    mSort(SqList, tmpArr, 1, len);
+}
+//递归合并排序
+void mSort(ElemType *A, ElemType *tmpArr, int left, int right)
+{
+    int center;
+    if(left < right)
+    {
+        center = (left + right) / 2;
+        mSort(A, tmpArr, left, center);
+        mSort(A, tmpArr, center + 1, right);
+        merge(A, tmpArr, left, center, right);
+    }
+}
+//两数组合并
+void merge(ElemType *A, ElemType *tmpArr, int left, int center, int right)
+{
+    int i, j, tmp;
+    i = left;
+    j = center + 1;
+    tmp = 1;
+    while (i <= center && j <= right)
+    {
+        tmpArr[tmp++] = A[i] < A[j] ? A[i ++] : A[j ++];
+
+    }
+    while (i <= center )
+    {
+        tmpArr[tmp++] = A[i++];
+
+    }
+    while (j <= right)
+    {
+        tmpArr[tmp++] = A[j++];
+    }
+    i = right;
+    tmp--;
+    while (tmp > 0)
+    {
+        A[i--] = tmpArr[tmp--];
+
+    }
+}
+
 
 void testSort() {
     int start, end;
     const int N = 100 * 1024;
+
+    int a[3] = {-1 ,200,90};
+    int t[3];
+    merge(a,t,1,1,2);
+    printArr(a, 2);
+    /*
     ElemType *SqList = (int *) malloc(sizeof(int) * (N + 1));
     ElemType *SqList1 = (int *) malloc(sizeof(int) * (N + 1));
 
-    readFromFile("raw.txt", SqList, N);
-    start = clock();
-    quickSort(SqList, 1, N);
-    end = clock();
-    printf("qsort排序用时:%dms\n", end - start);
-    //printToFile("quick.txt", SqList, N);
-    //printArr(SqList, N);
-
-
-    readFromFile("raw.txt", SqList1, N);
-    start = clock();
-    shellSort(SqList1, N);
-    end = clock();
-    printf("shellsort排序用时:%dms\n", end - start);
-    //printArr(SqList1, N);
-    for (int i = 1; i <= N ; ++i) {
-        if(SqList[i]!=SqList1[i])
-        {
-            printf("%d, quick:%d  shell: %d\n",i,SqList[i],SqList1[i]);
-        }
-    }
-    //printToFile("shell.txt",SqList, N);
-
     free(SqList1);
     free(SqList);
+*/
 }
 
 
