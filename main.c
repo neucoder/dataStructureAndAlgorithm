@@ -10,7 +10,7 @@ int main() {
     srand((unsigned int)time(NULL));
     printf("----------------------program start -----------------------\n");
 
-    testHFCode();
+    //testHFCode();
     //newline
     printf("\n----------------------program  end ------------------------\n");
     system("pause");
